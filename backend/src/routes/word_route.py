@@ -51,14 +51,14 @@ def validar_word():
                 continue
             for j in range(len(target)):
                 if guess[i] == target_list[j] and not used[j]:
-                    result[i] = "nulo"
+                    result[i] = "warning"
                     used[j] = True
                     break
 
         # 3ª: o que sobrou é rejeitado (cinza)
         for i in range(len(target)):
             if result[i] is None:
-                result[i] = "reject"
+                result[i] = "error"
 
         status = [
             {"letter": guess[i], "result": result[i]}
