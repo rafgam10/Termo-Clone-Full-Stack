@@ -42,7 +42,7 @@ def validar_word():
         # 1ª passada: acertos exatos (verde)
         for i in range(len(target)):
             if guess[i] == target_list[i]:
-                result[i] = "sucess"
+                result[i] = "success"
                 used[i] = True
 
         # 2ª passada: letra existe em outra posição (amarelo)
@@ -65,8 +65,9 @@ def validar_word():
             for i in range(len(target))
         ]
 
-        won = all(r == "sucess" for r in result)
+        won = all(r == "success" for r in result)
 
+        print("Acabou, fim")
         return jsonify({"status": status, "won": won}), 200
 
     except Exception as e:

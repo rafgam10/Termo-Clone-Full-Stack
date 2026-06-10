@@ -13,7 +13,8 @@ async function lidarComTecla(key: string) {
 
 onMounted(async () => {
   await $fetch('http://localhost:5000/word/start', {
-    credentials: 'include'
+    credentials: 'include',
+    server: true // executa no servidor, uma única vez
   })
 })
 </script>

@@ -1,6 +1,6 @@
 from flask import Flask
 from .settings.config import Config
-from .settings.extensions import db, migrate
+from .settings.extensions import db, migrate, cors
 
 def create_app():
     app = Flask(__name__)
@@ -8,6 +8,7 @@ def create_app():
 
     db.init_app(app)
     migrate.init_app(app, db)
+    cors.init_app(app, supports_credentials=True, origins=["http://localhost:3000"])
 
     try:
         from .routes import register_routes
